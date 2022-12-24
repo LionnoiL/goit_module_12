@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ShowOneSecond {
 
-    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
     private  long startTime = System.currentTimeMillis();
     private int secCounter;
 
@@ -19,5 +19,17 @@ public class ShowOneSecond {
                 1,
                 1,
                 TimeUnit.SECONDS);
+
+        scheduler.scheduleAtFixedRate(
+                ()->{
+                    System.out.println("Пройшло 5 секунд");
+                },
+                5,
+                5,
+                TimeUnit.SECONDS);
+
+
     }
+
+
 }
